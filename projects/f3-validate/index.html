@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fat Free Validator by acemureithi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Fat Free Framework Validator</h1>
+        <p>By Ace Mureithi</p>
+        <p class="view"><a href="https://github.com/acemureithi/f3-validate">View the Project on GitHub <small>{{$f3->Validate}}</small></a></p>
+        <ul>
+          <li class="single"><a href="https://github.com/acemureithi/f3-validate">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-fat-free-framework-validator" class="anchor" href="#fat-free-framework-validator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fat Free Framework Validator</h1>
+
+<p>A Validation plugin for Fat Free Framework (Forked by GUMP).
+GUMP is a standalone PHP data validation and filtering class.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Copy the <code>lib\validate.php</code> file to the lib folder or any root of an auto included folder.</p>
+
+<h2><a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$data</span> <span class="pl-k">=</span> <span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>get(<span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1"><span class="pl-smi">$valid</span> <span class="pl-k">=</span> <span class="pl-c1">Validate</span><span class="pl-k">::</span>is_valid(<span class="pl-smi">$data</span>, <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>required|alpha_numeric<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>required|max_len,100|min_len,6<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">));</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">if</span>(<span class="pl-smi">$valid</span> <span class="pl-k">===</span> <span class="pl-c1">true</span>) {</span>
+<span class="pl-s1">    <span class="pl-c">// continue</span></span>
+<span class="pl-s1">} <span class="pl-k">else</span> {</span>
+<span class="pl-s1">    <span class="pl-c1">print_r</span>(<span class="pl-smi">$valid</span>);</span>
+<span class="pl-s1">}</span></pre></div>
+
+<h2><a id="user-content-available-validators" class="anchor" href="#available-validators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available Validators</h2>
+
+<ul>
+<li>required <code>Ensures the specified key value exists and is not empty</code></li>
+<li>valid_email <code>Checks for a valid email address</code></li>
+<li>max_len,n <code>Checks key value length, makes sure it's not longer than the specified length. n = length parameter.</code></li>
+<li>min_len,n <code>Checks key value length, makes sure it's not shorter than the specified length. n = length parameter.</code></li>
+<li>exact_len,n <code>Ensures that the key value length precisely matches the specified length. n = length parameter.</code></li>
+<li>alpha <code>Ensure only alpha characters are present in the key value (a-z, A-Z)</code></li>
+<li>alpha_numeric <code>Ensure only alpha-numeric characters are present in the key value (a-z, A-Z, 0-9)</code></li>
+<li>alpha_dash <code>Ensure only alpha-numeric characters + dashes and underscores are present in the key value (a-z, A-Z, 0-9, _-)</code></li>
+<li>alpha_space <code>Ensure only alpha-numeric characters + spaces are present in the key value (a-z, A-Z, 0-9, \s)</code></li>
+<li>numeric <code>Ensure only numeric key values</code></li>
+<li>integer <code>Ensure only integer key values</code></li>
+<li>boolean <code>Checks for PHP accepted boolean values, returns TRUE for "1", "true", "on" and "yes"</code></li>
+<li>float <code>Checks for float values</code></li>
+<li>valid_url <code>Check for valid URL or subdomain</code></li>
+<li>url_exists <code>Check to see if the url exists and is accessible</code></li>
+<li>valid_ip <code>Check for valid generic IP address</code></li>
+<li>valid_ipv4 <code>Check for valid IPv4 address</code></li>
+<li>valid_ipv6 <code>Check for valid IPv6 address</code></li>
+<li>valid_cc <code>Check for a valid credit card number (Uses the MOD10 Checksum Algorithm)</code></li>
+<li>valid_name <code>Check for a valid format human name</code></li>
+<li>contains,n <code>Verify that a value is contained within the pre-defined value set</code></li>
+<li>containsList,n <code>Verify that a value is contained within the pre-defined value set. The list of valid values must be provided in semicolon-separated list format (like so: value1;value2;value3;..;valuen). If a validation error occurs, the list of valid values is not revelead (this means, the error will just say the input is invalid, but it won't reveal the valid set to the user.</code></li>
+<li>doesNotcontainList,n <code>Verify that a value is not contained within the pre-defined value set. Semicolon (;) separated, list not outputted. See the rule above for more info.</code></li>
+<li>street_address <code>Checks that the provided string is a likely street address. 1 number, 1 or more space, 1 or more letters</code></li>
+<li>iban <code>Check for a valid IBAN</code></li>
+<li>min_numeric <code>Determine if the provided numeric value is higher or equal to a specific value</code></li>
+<li>max_numeric <code>Determine if the provided numeric value is lower or equal to a specific value</code></li>
+<li>date <code>Determine if the provided input is a valid date (ISO 8601)</code></li>
+<li>starts <code>Ensures the value starts with a certain character / set of character</code></li>
+<li>phone_number <code>Validate phone numbers that match the following examples: 555-555-5555 , 5555425555, 555 555 5555, 1(519) 555-4444, 1 (519) 555-4422, 1-555-555-5555</code></li>
+<li>regex <code>You can pass a custom regex using the following format: 'regex,/your-regex/'</code></li>
+<li>valid_json_string <code>validate string to check if it's a valid json format</code></li>
+</ul>
+
+<h2><a id="user-content-available-filters" class="anchor" href="#available-filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available Filters</h2>
+
+<p>Filters can be any PHP function that returns a string. You don't need to create your own if a PHP function exists that does what you want the filter to do.</p>
+
+<ul>
+<li>sanitize_string <code>Remove script tags and encode HTML entities;</code></li>
+<li>urlencode <code>Encode url entities</code></li>
+<li>htmlencode <code>Encode HTML entities</code></li>
+<li>sanitize_email <code>Remove illegal characters from email addresses</code></li>
+<li>sanitize_numbers <code>Remove any non-numeric characters</code></li>
+<li>trim <code>Remove spaces from the beginning and end of strings</code></li>
+<li>base64_encode <code>Base64 encode the input</code></li>
+<li>base64_decode <code>Base64 decode the input</code></li>
+<li>sha1 <code>Encrypt the input with the secure sha1 algorithm</code></li>
+<li>md5 <code>MD5 encode the input</code></li>
+<li>noise_words <code>Remove noise words from string</code></li>
+<li>json_encode <code>Create a json representation of the input</code></li>
+<li>json_decode <code>Decode a json string</code></li>
+<li>rmpunctuation <code>Remove all known punctuation characters from a string</code></li>
+<li>basic_tags <code>Remove all layout orientated HTML tags from text. Leaving only basic tags</code></li>
+<li>whole_number <code>Ensure that the provided numeric value is represented as a whole number</code></li>
+</ul>
+
+<p>Adding custom validators and filters is made easy by using callback functions.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">/* </span></span>
+<span class="pl-s1"><span class="pl-c">   Create a custom validation rule named "is_code". Imagine we want the user to create a 6 letter code with 3 letters and 3 numbers eg: FAT300</span></span>
+<span class="pl-s1"><span class="pl-c">   The callback receives 3 arguments:</span></span>
+<span class="pl-s1"><span class="pl-c">   The field to validate, the values being validated, and any parameters used in the validation rule.</span></span>
+<span class="pl-s1"><span class="pl-c">   It should return a boolean value indicating whether the value is valid.</span></span>
+<span class="pl-s1"><span class="pl-c">*/</span></span>
+<span class="pl-s1"><span class="pl-c1">Validate</span><span class="pl-k">::</span>add_validator(<span class="pl-s"><span class="pl-pds">"</span>is_code<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$field</span>, <span class="pl-smi">$input</span>, <span class="pl-smi">$param</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>) {</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-c1">preg_match</span>(<span class="pl-s"><span class="pl-pds">"</span>^[A-Z]{3}\d{3}$<span class="pl-pds">"</span></span>, <span class="pl-smi">$input</span>[<span class="pl-smi">$field</span>])</span>
+<span class="pl-s1">});</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">/* </span></span>
+<span class="pl-s1"><span class="pl-c">   Create a custom filter named "upper".</span></span>
+<span class="pl-s1"><span class="pl-c">   The callback function receives two arguments:</span></span>
+<span class="pl-s1"><span class="pl-c">   The value to filter, and any parameters used in the filter rule. It should returned the filtered value.</span></span>
+<span class="pl-s1"><span class="pl-c">*/</span></span>
+<span class="pl-s1"><span class="pl-c1">Validate</span><span class="pl-k">::</span>add_filter(<span class="pl-s"><span class="pl-pds">"</span>upper<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$value</span>, <span class="pl-smi">$params</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>) {</span>
+<span class="pl-s1">    <span class="pl-k">return</span> <span class="pl-c1">strtoupper</span>(<span class="pl-smi">$value</span>);</span>
+<span class="pl-s1">});</span>
+<span class="pl-s1"><span class="pl-c">// This code must be included before activating the is_valid or run functions</span></span></pre></div>
+
+<p>Adding using with Cortex (by Ikkez):</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">Category</span> <span class="pl-k">extends</span> <span class="pl-c1">\DB\</span><span class="pl-e">Cortex</span> {</span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$table</span> <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>categories<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$fieldConf</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>code<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">\DB\SQL\</span><span class="pl-c1">Schema</span><span class="pl-k">::</span><span class="pl-c1">DT_VARCHAR128</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>validate<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>required|max_len,3<span class="pl-pds">'</span></span>, <span class="pl-c">//Validations</span></span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>filter<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>trim|sanitize_string<span class="pl-pds">'</span></span>, <span class="pl-c">//Filters</span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">\DB\SQL\</span><span class="pl-c1">Schema</span><span class="pl-k">::</span><span class="pl-c1">DT_VARCHAR128</span>,</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>validate<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>required|alpha_numeric<span class="pl-pds">'</span></span>, <span class="pl-c">//Validations</span></span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>filter<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>trim|sanitize_string<span class="pl-pds">'</span></span>, <span class="pl-c">//Filters</span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>slug<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">\DB\SQL\</span><span class="pl-c1">Schema</span><span class="pl-k">::</span><span class="pl-c1">DT_VARCHAR128</span>,</span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>description<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>TEXT<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>icon<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>type<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>TEXT<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">        ),</span>
+<span class="pl-s1">    ]</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">/* Now in your controller or something */</span></span>
+<span class="pl-s1">    <span class="pl-k">function</span> <span class="pl-en">add</span>(<span class="pl-smi">$f3</span>) {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">if</span>(<span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>exists(<span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>)) {</span>
+<span class="pl-s1">            <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">model</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Category</span>()</span>
+<span class="pl-s1">            <span class="pl-smi">$validator</span><span class="pl-k">=</span> <span class="pl-c1">\</span><span class="pl-c1">Validate</span><span class="pl-k">::</span>instance();</span>
+<span class="pl-s1">            <span class="pl-smi">$validator</span><span class="pl-k">-&gt;</span>add_cortex(<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">model</span>);</span>
+<span class="pl-s1">            <span class="pl-smi">$data</span><span class="pl-k">=</span> <span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>get(<span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">            <span class="pl-k">if</span>(<span class="pl-smi">$validator</span><span class="pl-k">-&gt;</span>run(<span class="pl-smi">$data</span>)){</span>
+<span class="pl-s1">                <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">model</span><span class="pl-k">-&gt;</span>reset();</span>
+<span class="pl-s1">                <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">model</span><span class="pl-k">-&gt;</span>copyfrom(<span class="pl-s"><span class="pl-pds">'</span>POST<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">                <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">model</span><span class="pl-k">-&gt;</span>save();</span>
+<span class="pl-s1">                <span class="pl-c1">\</span><span class="pl-c1">Flash</span><span class="pl-k">::</span>instance()<span class="pl-k">-&gt;</span>addMessage(<span class="pl-s"><span class="pl-pds">'</span>New Record Successfully added to Database<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">                <span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>reroute(<span class="pl-sr"><span class="pl-pds">'/</span>admin<span class="pl-pds">/'</span></span> <span class="pl-k">.</span><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">prural</span>);</span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1">            <span class="pl-k">foreach</span> (<span class="pl-smi">$validator</span><span class="pl-k">-&gt;</span>get_errors_array() <span class="pl-k">as</span> <span class="pl-smi">$field</span><span class="pl-k">=&gt;</span><span class="pl-smi">$error</span>) {</span>
+<span class="pl-s1">                <span class="pl-c">#Handle Your errors</span></span>
+<span class="pl-s1">                <span class="pl-c">//\Flash::instance()-&gt;addMessage($error,'warning');  # Uncomment if you are using Flash</span></span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1">        <span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>set(<span class="pl-s"><span class="pl-pds">'</span>page.inner<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>/add.html<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">        <span class="pl-smi">$f3</span><span class="pl-k">-&gt;</span>set(<span class="pl-s"><span class="pl-pds">'</span>page.title<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>Add New<span class="pl-pds">'</span></span>));</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    }</span></pre></div>
+
+<p>More documentation and examples can be found here:
+ <a href="https://github.com/Wixel/GUMP">https://github.com/Wixel/GUMP</a></p>
+</article>
+     </section>
+    </div>
+    <footer>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
