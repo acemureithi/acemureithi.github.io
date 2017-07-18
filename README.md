@@ -1,4 +1,4 @@
-# acemureithi.github.io
-Github page for Ace Mureithi
+# geofmureithi.github.io
+Github page for Geoffrey Mureithi
 
 Welcome
