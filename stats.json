@@ -1,0 +1,44 @@
+{
+  "assetsByChunkName": {
+    "path---2016-06-24-python-the-f-k-it-approach": [
+      "path---2016-06-24-python-the-f-k-it-approach-4c87e1b9108994d8afc0.js",
+      "path---2016-06-24-python-the-f-k-it-approach-4c87e1b9108994d8afc0.js.map"
+    ],
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-9dcb2795de9f1a13e091.js",
+      "component---src-pages-index-js-9dcb2795de9f1a13e091.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "component---src-templates-blog-post-js": [
+      "component---src-templates-blog-post-js-7a8393a9c82e5ba0bb9d.js",
+      "component---src-templates-blog-post-js-7a8393a9c82e5ba0bb9d.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-8a1e3b47377d69f5ea51.js",
+      "component---src-layouts-index-js-8a1e3b47377d69f5ea51.js.map"
+    ],
+    "path---index": [
+      "path---index-18eb99a038573e967070.js",
+      "path---index-18eb99a038573e967070.js.map"
+    ],
+    "path---2017-12-11-python-writing-the-perfect-tribonacci-sequence": [
+      "path---2017-12-11-python-writing-the-perfect-tribonacci-sequence-992c191a8b8e298ed8f5.js",
+      "path---2017-12-11-python-writing-the-perfect-tribonacci-sequence-992c191a8b8e298ed8f5.js.map"
+    ],
+    "path---2015-08-12-html-css-creating-a-simple-beautiful-tab-design-that-requires-no-javascript": [
+      "path---2015-08-12-html-css-creating-a-simple-beautiful-tab-design-that-requires-no-javascript-6a581f65cb01e8022784.js",
+      "path---2015-08-12-html-css-creating-a-simple-beautiful-tab-design-that-requires-no-javascript-6a581f65cb01e8022784.js.map"
+    ],
+    "commons": [
+      "commons-4caa09effb16dd171639.js",
+      "commons-4caa09effb16dd171639.js.map"
+    ],
+    "app": [
+      "app-1e6bddde09a11e765895.js",
+      "app-1e6bddde09a11e765895.js.map"
+    ]
+  }
+}
